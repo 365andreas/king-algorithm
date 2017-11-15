@@ -6,5 +6,5 @@ import System.Environment
 
 main :: IO ()
 main = do
-  a:p:_ <- getArgs
-  master (read a) (read p)
+  n:f:_ <- getArgs
+  master (read n) (read f)
