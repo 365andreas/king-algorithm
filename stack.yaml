@@ -1,0 +1,7 @@
+flags: {}
+nix: null
+packages:
+- .
+extra-deps:
+- distributed-process-0.7.3
+resolver: nightly-2017-07-12
