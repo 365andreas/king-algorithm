@@ -36,7 +36,8 @@ rounding :: [ProcessId] -> ProcessId -> Phase -> [ProcessId]
 rounding others self phase (king:restKings) n f interval cmd = do
     say $ " \t-- Phase " ++ show phase ++ " --"
     -- Round 1
-    values <- roundOne others self interval cmd
+    vals <- roundOne others self interval cmd
+    let values = Value cmd:vals
     -- Round 2
     let (Value y , t):_ = frequency values
     when (t >= (n-f)) (broadcast others $ Propose y)

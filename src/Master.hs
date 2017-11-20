@@ -66,6 +66,7 @@ master n f = do
         forM_ proposers $ flip send (Info proposers n f masterPid kings)
 
         cmds <- replicateM n $ receiveWait [ match serveExecuted ]
+        say "[Master] : \tFinished."
         if all (\ cmd -> cmd == head cmds) cmds
             then say "[Master] : \tSuccess! All executed commands were the same."
             else say "[Master] : \tERROR! Not all the commands were the same."
