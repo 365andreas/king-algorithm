@@ -20,7 +20,7 @@ data Timeout = Timeout
 
 -- | The 'Info' message contains all nodes pids, n, f ans
 -- master's pid.
-data Info = Info [ProcessId] Int Int ProcessId
+data Info = Info [ProcessId] Int Int ProcessId [ProcessId]
     deriving (Generic, Typeable, Binary, Show)
 
 -- | The 'Value' message is the one the node sends to the
@@ -30,8 +30,14 @@ newtype Value = Value Command -- Phase
 
 -- | The 'Propose' message is the one sent by the node to
 -- the others in line 5.
-data Propose = Propose Command Phase -- ProcessId
-    deriving (Generic, Typeable, Binary, Show)
+newtype Propose = Propose Command -- Phase ProcessId
+    deriving (Generic, Typeable, Binary, Show, Eq, Ord)
+
+
+-- | The 'King' message is the one sent by the king to
+-- the others in line 11.
+newtype King = King Command -- Phase ProcessId
+    deriving (Generic, Typeable, Binary, Show, Eq, Ord)
 
 -- | The 'Executed' message is an additional message we
 -- just use for this exercise. It's sent by the nodes to

@@ -16,6 +16,7 @@ library
                      , Messages
                      , Proposer
   build-depends:       base >= 4.7 && < 5
+                     , array
                      , binary
                      , containers
                      , distributed-process
