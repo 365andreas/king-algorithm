@@ -8,7 +8,7 @@ In order to build the project you must first run:
 ./stack build
 ```
 
-## **King's algorithm in Cloud Haskell**
+## **King's algorithm in Haskell**
 
 Paxos implementation according to 'The Science of the Blockchain' book.
 
